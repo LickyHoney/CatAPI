@@ -24,9 +24,9 @@ const CardList = (props) => {
       const indexOfLastTodo = offset * postsPerPage;
       const indexOfFirstTodo = indexOfLastTodo - postsPerPage;
       const cats = data.slice(indexOfFirstTodo, indexOfLastTodo);
-      //const cats = data.slice(offset - 1, offset - 1 + postsPerPage);
+
       const filteredCats = cats.filter((cat) => {
-        return cat.name.toLowerCase().includes(search.toLowerCase());
+        return JSON.stringify(cat).toLowerCase().includes(search.toLowerCase()); //filter condition for search by breed data.
       });
 
       console.log(cats);
@@ -50,6 +50,8 @@ const CardList = (props) => {
     pageNumbers.push(i);
   }
 
+  //rendering pagination
+
   const renderPageNumbers = pageNumbers.map((number) => {
     return (
       <li className="page-link">
@@ -65,8 +67,6 @@ const CardList = (props) => {
     );
   });
 
-  //Rendering the web page.
-
   const onSearchChange = (event) => {
     setSearch(event.target.value);
   };
@@ -77,6 +77,8 @@ const CardList = (props) => {
     return cat;
   });
   console.log(catImg);
+
+  //To get the image url to display images.
   const img1 = catImg.map((img2) => img2.url);
   console.log(img1);
 
@@ -87,6 +89,7 @@ const CardList = (props) => {
     setBreeds(sortedData);
   };
 
+  //Rendering the web page.
   return (
     <div className="container">
       <header id="myheader" className="header-dark">
