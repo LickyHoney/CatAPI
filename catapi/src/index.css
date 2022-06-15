@@ -22,3 +22,116 @@ h1 {
   font-size: 5rem;
   font-family: ui-rounded;
 }
+
+flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.ImageListItemBar title {
+  font-size: 5rem;
+}
+.card {
+  position: relative;
+}
+.tc {
+  width: 100%;
+  border: 15px solid white;
+  padding: 50px;
+  margin: 20px;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner {
+  /*width: 50px;
+  height: 50px;
+  border: 10px solid red; /* Light grey */
+  /*border-top: 10px solid #383636; /* Black */
+  /*border-radius: 50%;
+  animation: spinner 1.5s linear infinite;*/
+  animation: "border" variant= "primary" linear infinite;
+}
+
+.ic2-fa-spin-blue {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  border: 3px solid #008ad6;
+  border-radius: 50%;
+  border-top: 3px solid #f3f3f3;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: ic2-spin 2s linear infinite; /* Safari */
+  animation: ic2-spin 2s linear infinite;
+  -moz-animation: ic2-spin 2s infinite linear;
+  -o-animation: ic2-spin 2s infinite linear;
+  /*position: absolute;
+  /*margin-left:1em;*/
+  /*margin-top: 6px;
+  margin-right: auto;
+  margin-left: auto;*/
+  display: block;
+  position: absolute;
+}
+@-webkit-keyframes ic2-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ic2-outlined-spin-blue-btn {
+  color: #a3deff;
+  border: 1px solid #008ad6;
+}
+.ic2-outlined-btn {
+  border-radius: 3px;
+  background-color: var(--white-color);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+  font-family: Roboto;
+  font-size: 17px;
+  font-weight: 500;
+  /*line-height: 32px;*/
+  text-align: var(--button-alignment);
+  padding: 0px 16px;
+  border-radius: 3px;
+  width: auto;
+  word-spacing: 8px;
+  height: 32px;
+}
+
+p {
+  color: blue;
+}
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #3498db;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  animation: spin 1s linear infinite;
+}
