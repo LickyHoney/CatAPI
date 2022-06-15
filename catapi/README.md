@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The aim of this assignment is to display Cat breeds data in the cards format Along with filtering and sorting.
+The aim of this assignment is to fetch and display Cat breeds data fromm given API "https://api.thecatapi.com/v1/breeds" in the cards format along with filtering and sorting.
 
 ## Front-end
 
