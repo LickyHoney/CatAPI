@@ -12,29 +12,29 @@ code {
     monospace;
 }
 
-.header-dark {
-  background: #baaae6;
-  color: white;
-  padding: 10px;
-}
-h1 {
-  color: rgb(0, 55, 255);
-  font-size: 5rem;
-  font-family: ui-rounded;
-}
-
-flex {
+.flex {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
-.ImageListItemBar title {
-  font-size: 5rem;
+
+.pa2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
+  margin-left: 2rem;
+  width: 75%;
 }
-.card {
-  position: relative;
+
+.pa2 input {
+  height: 32px;
+  width: 100%;
+  padding: 0px 12px 0px 12px;
 }
+
 .tc {
   width: 100%;
   border: 15px solid white;
@@ -42,6 +42,49 @@ flex {
   margin: 20px;
 }
 
+.ImageListItemBar title {
+  font-size: 5rem;
+}
+
+.pagination {
+  margin-top: 45px;
+  margin-left: -40px;
+  display: flex;
+  list-style: none;
+  outline: none;
+  justify-content: center;
+}
+
+.pagination > .active > a {
+  background-color: #47ccde;
+  color: #fff;
+}
+
+.pagination > li > a {
+  border: 1px solid #47ccde;
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  color: #47ccde;
+  background-color: azure;
+}
+
+.card {
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 100px !important;
+  height: 100px !important;
+}
 @keyframes spinner {
   0% {
     transform: rotate(0deg);
@@ -134,4 +177,40 @@ p {
   height: 80px;
   margin: auto;
   animation: spin 1s linear infinite;
+}
+
+#page-numbers {
+  list-style: none;
+  display: flex;
+}
+
+#page-numbers > li {
+  margin-right: 0.3em;
+  color: blue;
+  user-select: none;
+  cursor: pointer;
+}
+.header-dark {
+  background: #baaae6;
+  color: white;
+  padding: 10px;
+}
+h1 {
+  color: rgb(0, 55, 255);
+  font-size: 5rem;
+  font-family: ui-rounded;
+  text-align: center;
+}
+
+.sort {
+  background-color: #3498db;
+  width: 175px;
+  height: 65px;
+  margin: 20px auto;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  box-shadow: 0 1px 2px #5e5d5b;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 65px;
 }
