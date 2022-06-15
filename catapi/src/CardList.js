@@ -4,6 +4,9 @@ import Card from "./Card";
 import Search from "./Search";
 import Loading from "./Loading";
 
+//Segmented Button for Sorting.
+import { SegmentedControl } from "segmented-control";
+
 import { Button } from "react-bootstrap";
 const CardList = (props) => {
   // Declarations
@@ -99,9 +102,21 @@ const CardList = (props) => {
       <div className="flex">
         <Search searchChange={onSearchChange} />
         <div>
-          <Button className="sort" variant="primary" onClick={handleSort}>
+          {/* <Button className="sort" variant="primary" onClick={handleSort}>
             Sort
-          </Button>
+          </Button> */}
+
+          <SegmentedControl
+            name="oneDisabled"
+            options={[
+              { label: "Ascending", value: "1", default: true },
+              { label: "Descending", value: "-1" }
+            ]}
+            setValue={(newValue) => {
+              handleSort();
+            }}
+            style={{ width: 400, color: "#ab47bc" }} // purple400
+          ></SegmentedControl>
         </div>
       </div>
 
