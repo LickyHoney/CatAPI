@@ -1,4 +1,4 @@
-# Brewery ReactJS Project
+# Cat Breeds ReactJS Project
 
 ## Introduction
 
