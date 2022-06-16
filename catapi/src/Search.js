@@ -2,7 +2,7 @@ import { TextField, IconButton } from "@material-ui/core";
 
 import { SearchOutlined } from "@material-ui/icons";
 
-function Search({ searchfield, searchChange }) {
+function Search({ searchfield, searchChange, searchClick }) {
   return (
     <div className="pa2">
       <TextField
@@ -12,14 +12,8 @@ function Search({ searchfield, searchChange }) {
         placeholder="Search breeds..."
         color="'primary'"
         onChange={searchChange}
-        InputProps={{
-          endAdornment: (
-            <IconButton>
-              <SearchOutlined />
-            </IconButton>
-          )
-        }}
       />
+      <button onClick={searchClick}>Search</button>
     </div>
   );
 }

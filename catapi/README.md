@@ -21,10 +21,14 @@ npm install
 
 npm start
 
+# To build the project
+
+npm run build
+
 ## Rest API Library
 
 Axios
 
 # Netlify Link
 
-https://peaceful-heliotrope-e85b26.netlify.app
+https://preeminent-conkies-203b5f.netlify.app

@@ -16,6 +16,7 @@ const CardList = (props) => {
   const [postsPerPage] = useState(10);
   const [offset, setOffset] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [sort, setSort] = useState(false);
 
   // Fetching the breeds data using useEffect hook.
 
@@ -28,14 +29,14 @@ const CardList = (props) => {
       const indexOfFirstTodo = indexOfLastTodo - postsPerPage;
       const cats = data.slice(indexOfFirstTodo, indexOfLastTodo);
 
-      const filteredCats = cats.filter((cat) => {
-        return JSON.stringify(cat).toLowerCase().includes(search.toLowerCase()); //filter condition for search by breed data.
-      });
+      // const filteredCats = cats.filter((cat) => {
+      //   return JSON.stringify(cat).toLowerCase().includes(search.toLowerCase()); //filter condition for search by breed data.
+      // });
 
       console.log(cats);
 
       setTimeout(() => {
-        setBreeds(filteredCats);
+        setBreeds(cats);
         setIsLoading(false);
       }, 700);
 
@@ -85,11 +86,30 @@ const CardList = (props) => {
   const img1 = catImg.map((img2) => img2.url);
   console.log(img1);
 
+  //To handle the sort.
+
   const handleSort = () => {
     const sortedData = [...breeds].sort((a, b) => {
       return a.first > b.first ? 1 : -1;
     });
     setBreeds(sortedData);
+  };
+
+  //To handle the search.
+
+  const handleSearch = () => {
+    axios.get(`https://api.thecatapi.com/v1/breeds`).then((res) => {
+      console.log(res);
+      const data = res.data;
+      const filteredCats = data.filter((cat) => {
+        return JSON.stringify(cat).toLowerCase().includes(search.toLowerCase()); //filter condition for search by breed data.
+      });
+      const indexOfLastTodo = offset * postsPerPage;
+      const indexOfFirstTodo = indexOfLastTodo - postsPerPage;
+      const catsSearch = filteredCats.slice(indexOfFirstTodo, indexOfLastTodo);
+
+      setBreeds(catsSearch);
+    });
   };
 
   //Rendering the web page.
@@ -100,7 +120,8 @@ const CardList = (props) => {
       </header>
 
       <div className="flex">
-        <Search searchChange={onSearchChange} />
+        <Search searchChange={onSearchChange} searchClick={handleSearch} />
+
         <div>
           {/* <Button className="sort" variant="primary" onClick={handleSort}>
             Sort
@@ -120,7 +141,7 @@ const CardList = (props) => {
         </div>
       </div>
 
-      {isLoading ? (
+      {!search && isLoading ? (
         <Loading />
       ) : (
         <div className="flex">
@@ -140,19 +161,7 @@ const CardList = (props) => {
         </div>
       )}
       <ul id="page-numbers" className="pagination">
-        <li className="page-link">
-          <button className="text-success">
-            <span aria-hidden="true">&laquo;</span>
-            <span className="sr-only">Previous</span>
-          </button>
-        </li>
         {renderPageNumbers}
-        <li className="page-link">
-          <button className="text-success">
-            <span aria-hidden="true">&raquo;</span>
-            <span className="sr-only">Next</span>
-          </button>
-        </li>
       </ul>
     </div>
   );
