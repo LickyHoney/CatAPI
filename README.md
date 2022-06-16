@@ -31,11 +31,6 @@ Source code URL: https://github.com/LickyHoney/CatAPI.git
 
 ## View Demo
 URL:  https://lucent-medovik-83bfbb.netlify.app/
-
-
-#### Navigate to pages:
- 
-Click page 4
  
 
 ## Reflection
