@@ -31,4 +31,4 @@ Axios
 
 # Netlify Link
 
-https://preeminent-conkies-203b5f.netlify.app
+https://playful-duckanoo-5b3f7a.netlify.app/

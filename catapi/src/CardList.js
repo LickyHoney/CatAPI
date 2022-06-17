@@ -8,12 +8,14 @@ import Loading from "./Loading";
 import { SegmentedControl } from "segmented-control";
 
 import { Button } from "react-bootstrap";
+import { DonutSmall, StoreMallDirectory } from "@material-ui/icons";
+import { fontWeight, width } from "@mui/system";
 const CardList = (props) => {
   // Declarations
   const [breeds, setBreeds] = useState([]);
   const [search, setSearch] = useState("");
   const [pageCount, setPageCount] = useState(0);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(14);
   const [offset, setOffset] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [sort, setSort] = useState(false);
@@ -29,10 +31,6 @@ const CardList = (props) => {
       const indexOfFirstTodo = indexOfLastTodo - postsPerPage;
       const cats = data.slice(indexOfFirstTodo, indexOfLastTodo);
 
-      // const filteredCats = cats.filter((cat) => {
-      //   return JSON.stringify(cat).toLowerCase().includes(search.toLowerCase()); //filter condition for search by breed data.
-      // });
-
       console.log(cats);
 
       setTimeout(() => {
@@ -46,7 +44,9 @@ const CardList = (props) => {
   }, [search, postsPerPage, offset]);
 
   const handlePageClick = (event) => {
+    debugger;
     setOffset(Number(event.target.id));
+    debugger;
   };
 
   const pageNumbers = [];
@@ -98,47 +98,68 @@ const CardList = (props) => {
   //To handle the search.
 
   const handleSearch = () => {
+    debugger;
     axios.get(`https://api.thecatapi.com/v1/breeds`).then((res) => {
       console.log(res);
       const data = res.data;
+
       const filteredCats = data.filter((cat) => {
         return JSON.stringify(cat).toLowerCase().includes(search.toLowerCase()); //filter condition for search by breed data.
       });
-      const indexOfLastTodo = offset * postsPerPage;
-      const indexOfFirstTodo = indexOfLastTodo - postsPerPage;
-      const catsSearch = filteredCats.slice(indexOfFirstTodo, indexOfLastTodo);
+      debugger;
 
+      const catsSearch = filteredCats.slice(0, 14);
       setBreeds(catsSearch);
+      debugger;
     });
   };
 
   //Rendering the web page.
   return (
     <div className="container">
-      <header id="myheader" className="header-dark">
-        <h1 className="w3-sans-serif">Cat Breeds</h1>
-      </header>
-
-      <div className="flex">
-        <Search searchChange={onSearchChange} searchClick={handleSearch} />
-
-        <div>
-          {/* <Button className="sort" variant="primary" onClick={handleSort}>
-            Sort
-          </Button> */}
-
-          <SegmentedControl
+      <div className="flex-container">
+        <div class="flex-child ">
+          <header id="myheader" className="header-dark">
+            CAT Breeds
+          </header>
+        </div>
+        <div class="flex-child ">
+          {/* <SegmentedControl
             name="oneDisabled"
             options={[
-              { label: "Ascending", value: "1", default: true },
-              { label: "Descending", value: "-1" }
+              { label: "A-Z", value: "-1", default: true },
+              { label: "Z-A", value: "1" }
             ]}
             setValue={(newValue) => {
               handleSort();
             }}
-            style={{ width: 400, color: "#ab47bc" }} // purple400
-          ></SegmentedControl>
+            style={{
+              width: 130,
+              height: 30,
+              color: "#ab47bc"
+            }} // purple400
+          ></SegmentedControl> */}
+          {/* <Button className="sort" variant="primary" onClick={handleSort}>
+            ⇅ Sort
+          </Button> */}
+          <button
+            style={{
+              justifyContent: "center",
+              marginTop: "52px",
+              marginRight: "-150px",
+              color: "#ab47bc",
+              fontWeight: 900,
+              background: "#588ced;"
+            }}
+            onClick={handleSort}
+          >
+            ⇅ Sort
+          </button>
         </div>
+      </div>
+
+      <div>
+        <Search searchChange={onSearchChange} searchClick={handleSearch} />
       </div>
 
       {!search && isLoading ? (

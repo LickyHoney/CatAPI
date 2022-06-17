@@ -4,23 +4,12 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 function Card({ name, image, id, description }) {
   return (
-    <ImageList
-      sx={{
-        width: 500,
-        height: 450,
-        display: "inline-flex"
-      }}
-    >
-      <ImageListItem key={id}>
-        <img
-          src={`${image}?w=248&fit=crop&auto=format`}
-          srcSet={`${image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-          alt={name}
-          loading="lazy"
-        />
-        <ImageListItemBar title={name} subtitle={description} />
-      </ImageListItem>
-    </ImageList>
+    <div class="grid-container">
+      <div class="grid-item" key={id}>
+        <img src={image} alt={name} width="180" height="180" />
+        <p>{name}</p>
+      </div>
+    </div>
   );
 }
 
