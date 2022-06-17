@@ -108,7 +108,7 @@ const CardList = (props) => {
       });
       debugger;
 
-      const catsSearch = filteredCats.slice(0, 14);
+      const catsSearch = filteredCats.slice(0, postsPerPage);
       setBreeds(catsSearch);
       debugger;
     });
