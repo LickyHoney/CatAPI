@@ -1,6 +1,6 @@
-import { TextField, IconButton } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 
-import { SearchOutlined } from "@material-ui/icons";
+//Renders the Search Component.
 
 function Search({ searchfield, searchChange, searchClick }) {
   return (

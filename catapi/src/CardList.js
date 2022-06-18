@@ -110,7 +110,7 @@ const CardList = (props) => {
 
       const catsSearch = filteredCats.slice(0, postsPerPage);
       setBreeds(catsSearch);
-      debugger;
+      if (offset) debugger;
     });
   };
 
