@@ -188,6 +188,8 @@ p {
 #page-numbers {
   list-style: none;
   display: flex;
+  color: crimson;
+  background-color: cornflowerblue;
 }
 
 #page-numbers > li {
@@ -258,4 +260,7 @@ h1 {
 
 header {
   width: 300px;
+}
+.text-success {
+  background-color: blueviolet;
 }
